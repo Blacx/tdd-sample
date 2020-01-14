@@ -27,7 +27,9 @@ namespace MyConsoleApp.Helpers.Calculators
 		public decimal ValueProducts(IEnumerable<Product> products)
 		{
 			var totalProducts = products.Sum(p => p.Price);
-			return _discounter.ApplyDiscount(totalProducts);
+			// Apply discount here
+			var discount = _discounter.ApplyDiscount(totalProducts);
+			return totalProducts - discount;
 		}
 	}
 }
